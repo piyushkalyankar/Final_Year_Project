@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeDatabaseModel2.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EmployeeDatabaseModel2StoreContainer">
+    <EntitySet Name="Atendance" EntityType="EmployeeDatabaseModel2.Store.Atendance" store:Type="Tables" store:Schema="dbo" store:Name="Atendance">
+      <DefiningQuery>SELECT 
+      [Atendance].[Id] AS [Id], 
+      [Atendance].[attendance] AS [attendance], 
+      [Atendance].[date] AS [date], 
+      [Atendance].[month] AS [month]
+      FROM [dbo].[Atendance] AS [Atendance]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Employee" EntityType="EmployeeDatabaseModel2.Store.Employee" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'EmployeeDatabase.dbo.Atendance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Atendance">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="date" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="attendance" Type="nvarchar" MaxLength="50" />
+    <Property Name="date" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="month" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="address" Type="nvarchar" MaxLength="50" />
+    <Property Name="gender" Type="varchar" MaxLength="10" />
+    <Property Name="position" Type="nvarchar" MaxLength="50" />
+    <Property Name="birthdate" Type="nvarchar" MaxLength="50" />
+    <Property Name="eduaction" Type="nvarchar" MaxLength="50" />
+    <Property Name="phone" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="mail" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="salary" Type="numeric" />
+    <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="usertype" Type="varchar" MaxLength="10" />
+  </EntityType>
+</Schema>

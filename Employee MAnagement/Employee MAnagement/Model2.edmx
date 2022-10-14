@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EmployeeDatabaseModel2.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EmployeeDatabaseModel2StoreContainer">
+          <EntitySet Name="Atendance" EntityType="EmployeeDatabaseModel2.Store.Atendance" store:Type="Tables" store:Schema="dbo" store:Name="Atendance">
+            <DefiningQuery>SELECT 
+      [Atendance].[Id] AS [Id], 
+      [Atendance].[attendance] AS [attendance], 
+      [Atendance].[date] AS [date], 
+      [Atendance].[month] AS [month]
+      FROM [dbo].[Atendance] AS [Atendance]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Employee" EntityType="EmployeeDatabaseModel2.Store.Employee" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'EmployeeDatabase.dbo.Atendance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Atendance">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="date" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="attendance" Type="nvarchar" MaxLength="50" />
+          <Property Name="date" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="month" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" />
+          <Property Name="gender" Type="varchar" MaxLength="10" />
+          <Property Name="position" Type="nvarchar" MaxLength="50" />
+          <Property Name="birthdate" Type="nvarchar" MaxLength="50" />
+          <Property Name="eduaction" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="mail" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="salary" Type="numeric" />
+          <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="usertype" Type="varchar" MaxLength="10" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EmployeeDatabaseModel2" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EmployeeDatabaseEntities6" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Atendances" EntityType="EmployeeDatabaseModel2.Atendance" />
+          <EntitySet Name="Employees" EntityType="EmployeeDatabaseModel2.Employee" />
+        </EntityContainer>
+        <EntityType Name="Atendance">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="date" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="attendance" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="date" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="month" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="gender" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="position" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="birthdate" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="eduaction" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="phone" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="mail" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="salary" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="usertype" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EmployeeDatabaseModel2StoreContainer" CdmEntityContainer="EmployeeDatabaseEntities6">
+          <EntitySetMapping Name="Atendances">
+            <EntityTypeMapping TypeName="EmployeeDatabaseModel2.Atendance">
+              <MappingFragment StoreEntitySet="Atendance">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="attendance" ColumnName="attendance" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="month" ColumnName="month" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="EmployeeDatabaseModel2.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="eduaction" ColumnName="eduaction" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="usertype" ColumnName="usertype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model2">
+        <EntityTypeShape EntityType="EmployeeDatabaseModel2.Atendance" Width="1.5" PointX="0.75" PointY="0.75" Height="1.787985026041667" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeDatabaseModel2.Employee" Width="1.5" PointX="2.75" PointY="0.75" Height="3.3263964843749996" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

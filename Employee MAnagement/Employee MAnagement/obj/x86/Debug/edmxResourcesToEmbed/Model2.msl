@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EmployeeDatabaseModel2StoreContainer" CdmEntityContainer="EmployeeDatabaseEntities6">
+    <EntitySetMapping Name="Atendances">
+      <EntityTypeMapping TypeName="EmployeeDatabaseModel2.Atendance">
+        <MappingFragment StoreEntitySet="Atendance">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="attendance" ColumnName="attendance" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="month" ColumnName="month" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="EmployeeDatabaseModel2.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+          <ScalarProperty Name="eduaction" ColumnName="eduaction" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="usertype" ColumnName="usertype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeDatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="EmployeeDatabaseEntities5" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Atendances" EntityType="EmployeeDatabaseModel.Atendance" />
+    <EntitySet Name="Employees" EntityType="EmployeeDatabaseModel.Employee" />
+  </EntityContainer>
+  <EntityType Name="Atendance">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="date" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="attendance" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="date" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="month" Type="Decimal" Precision="2" Scale="0" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="gender" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="position" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="birthdate" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="eduaction" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="phone" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="mail" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="salary" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="usertype" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+  </EntityType>
+</Schema>
